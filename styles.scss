@@ -1,0 +1,18 @@
+@import './estilos/variables';
+@import './estilos/header';
+@import './estilos/mainContent';
+@import './estilos/footer';
+@import './estilos/nightMode';
+@import './estilos/favSection';
+@import './estilos/misGifos';
+@import './estilos/crearGifo';
+
+*{
+    margin: 0px;
+    padding: 0px;
+    // max-width: 100%;
+}
+body{
+    display: grid;
+    grid-template-rows: 5% 80% 10%;
+}

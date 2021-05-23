@@ -1,0 +1,132 @@
+header{
+    display: grid;
+    grid-row-start: 1;
+    .lineaSup{
+        position: fixed;
+        width: 100%;
+        height: .3em;
+        background-color: $violeta;
+        z-index:100;
+    }
+    div{
+        grid-row-start:1;
+        grid-row-end: 2;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 1em;
+        
+        .logo{
+            align-items: center;
+            width: $sizeMain + 1em;
+            height: auto;
+            padding-left: 1em;
+            font-family: $robotoFont;
+            @media screen and (min-width: 950px) {
+                padding-left:4em;
+                position: relative;
+                top: -1.5em;
+            }
+        }
+        
+        .iconoMenu{
+            align-items: center;
+            width: $sizeMain - 1.2em;
+            height: auto;
+            padding: 1em;
+            @media screen and (min-width: 950px) {
+                display: none;   
+            }
+
+        }
+        //estilos de Menu
+        .contMenu{
+            a{
+                text-decoration: none;
+                color:white;
+            }
+            display: none;
+            font-family:$montserratFont;
+            font-size: $sizeMain - .8em;
+            font-weight: bold;
+            text-align: center;
+            position:absolute;
+            top: 5rem;
+            justify-content: space-between;
+            background-color: rgba($color:$violeta , $alpha: 0.9);
+            width: 100%;
+            height: 100vh;
+            padding-top: 2rem;
+            @media screen and (min-width: 950px) {
+                position: relative;
+                background-color: transparent;
+                top: 0;
+                padding-top: 0;
+                height: auto;
+                width: auto;
+                padding-right: 5em;           
+            }
+            li:hover{
+                text-decoration: underline $celeste;
+            }
+            li:hover a{
+        
+                text-decoration: underline $celeste;  
+            }
+            
+        }
+        //estilos de Menu
+        .contMenu ul li{ 
+            cursor: pointer;
+            color:white;
+            list-style: none;
+            padding-top:1em;
+            padding-bottom: 1em;
+            border-bottom-width:medium;
+            
+            // border-bottom: 1px solid white;
+            @media screen and (min-width: 950px) {
+                a{
+                    color: $violeta;
+                }
+                color: $violeta;
+                border: none;
+                padding:1.5em;
+                float: left;
+                vertical-align: middle;
+            }
+            // estilos de imagen de crear gif
+            img{
+                position: relative;
+                top: -0.8em;
+            }
+
+
+        }
+        //estilos de para menu activo
+        .activo{
+            display:inline-block;
+            z-index: 1000;
+            img{
+                display: none;
+            }
+        }
+        //estilo para menu desactivado 
+        .noActivo{
+            display: none;
+            @media screen and (min-width: 950px) {
+                display: inline-block;   
+            }
+        }
+
+    }
+}
+
+.headerScroll{
+    position: sticky;
+    top: 0;
+    background-color: white;
+    height: 90px;
+    box-shadow: 0px 2px 4px 1px $shadowHeader ;
+    z-index: 1000;
+}

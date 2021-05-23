@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/Logo-modo-noc.svg" type="image/png" />
+    <!-- Importacion de fuentes -->
+    <!-- Fuente Montserrat-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Fuente Roboto-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title>GIFOS</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Script -->
+    <script src="./js/index.js"></script>
+</head>
+
+<body id="body">
+
+    <header id="header">
+        <span class="lineaSup"></span>
+        
+        <div>
+            <img class="logo" src="./images/logo-mobile.svg" alt="Logo de la aplicacion" id="logo">
+
+            <div class="iconoMenu color">
+                <img src="./images/burger.svg" id="iconoMenu" alt="menu hamburguesa">
+            </div>
+
+            <div class="contMenu noActivo" id="menu">
+                <ul>
+                    <li id="modoNocturno">Modo Nocturno</li>
+                    <li><a href="favoritos.html">Favorito</a></li>
+                    <li><a href="misgifos.html">Mis GIFOS</a></li>
+                    <li><a href="creargifo.html"><img src="./images/button-crear-gifo.svg" alt="" id="crearGifo"></a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>            
+            <article id="artBusqueda">
+                <h1 id="tituloPrinc">Inspírate, busca, guarda, y crea los mejores<span class="gifos"> GIFOS</span></h1>
+                <form action="" id="form">
+                    <img class="imgPrincipal" src="./images/ilustra_header.svg" alt="">
+                    <img class="lupa" src="./images/icon-search.svg" alt="" id="lupa">
+                    <div>
+                        <input type="text" placeholder="Busca GIFOS y más" id="input" value="" class="" autocomplete="off">
+                        <ul id="ulBuscador" class="ulBuscador"></ul>
+                    </div>
+                </form>
+                <div class="tendenciasTitulo" id="tendenciasTitulo">
+                    <h2>Trending:</h2>
+                </div>
+            </article>
+            
+            
+            <article id="artTendencias">
+                <div>
+                    <h2>Trending GIFOS</h2>
+                    <div>
+                        <p>Mira los últimos</p>
+                        <p> GIFO de nuestra comunidad</p>
+                    </div>
+                </div>
+                <div class="imgTendencias">
+                    <svg id="btnSliderL" class="btnSliderL" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M2.414 7l5.293-5.293A1 1 0 006.293.293l-6 6a1 1 0 000 1.414l6 6a1 1 0 101.414-1.414L2.414 7z" id="a" /></defs><g fill="none" fill-rule="evenodd"><path stroke="#572EE5" d="M.5.5h39v39H.5z" /><use fill="#572EE5" fill-rule="nonzero" xlink:href="#a" transform="translate(16 13)" /></g></svg>
+                    <div class="gifPadre" id="gifPadre">
+                        <div class="gifHijo" id="gifHijo">
+
+                        </div>
+                    </div>
+                    <svg id="btnSliderR" class="btnSliderR" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M5.586 7L.293 12.293a1 1 0 001.414 1.414l6-6a1 1 0 000-1.414l-6-6A1 1 0 10.293 1.707L5.586 7z" id="b" /></defs><g fill="none" fill-rule="evenodd"><path stroke="#572EE5" d="M.5.5h39v39H.5z" /><use fill="#572EE5" fill-rule="nonzero" xlink:href="#b" transform="translate(16 13)" /></g></svg>
+                </div>
+            </article>
+            
+        </section>
+    </main>
+    
+    <footer>
+        <div class="cont">
+            <p>Compartir en:</p>
+            <div>
+                <img src="./images/icon_instagram.svg" alt="" id="instagram">
+                <img src="./images/icon_facebook.svg" alt="" id="facebook">
+                <img src="./images/icon-twitter.svg" alt="" id="twitter">
+            </div>
+        </div>
+        <div class="contenedor">
+            <p class="copy">© GIFOS 2021 All Rights Reserved.</p>
+        </div>
+        
+        <div class="lineaInf"></div>
+    </footer>
+    
+
+</body>
+
+</html>

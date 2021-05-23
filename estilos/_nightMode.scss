@@ -1,0 +1,88 @@
+.modoNocturnoBody{
+    color: white;
+    background-color: $bgNocturno;
+    .headerScroll{
+        position: sticky;
+        top: 0;
+        background-color:$bgNocturno ;
+        height: 90px;
+        box-shadow: 0px 2px 4px 1px black ;
+    }
+    header{
+        .contMenu{
+            background-color: rgba($color:black , $alpha: 0.9);
+            @media screen and (min-width: 950px) {
+                background-color: transparent;
+            }
+        }
+        .lineaSup{
+            background-color: black;
+        }    
+        .contMenu ul li{
+            color: white;
+            a{
+                color: white;
+            }
+        }
+        
+    }
+    .artFavoritos{
+        .favSinResultado{
+            text-align: center;
+            img{
+                margin-top: 2em;
+            }
+            p{
+                color: white;
+            }
+        }
+        .tituloFavoritos{
+            color: white;
+            
+        }
+    }
+    #artBusqueda{
+        h1{
+            color: white;
+
+        }
+        .tituloBusqueda{
+            color: white;
+        }
+        input{
+            border: 1px white solid;
+            background-color: $bgNocturno;
+        }
+        .lupa{
+            color: white;
+        }
+        .tendenciasTitulo{
+            color: white;
+        }
+        .inputConSugerenciasActivadas{
+            border-bottom:none ;
+        }
+        
+        .sugerenciasActivas{
+            border: 1px white solid;
+            border-top: 0;
+        }
+    }
+    #artTendencias{
+        background-color: $bgNocturnoTrending;
+        div{
+            h2{
+                color: white;
+            }
+            p{
+                color: white;
+            }
+        }
+    }
+
+    footer{
+        .lineaInf{
+            background-color: black;
+        }
+    }
+}

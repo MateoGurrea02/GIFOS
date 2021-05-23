@@ -1,0 +1,506 @@
+#artBusqueda{
+    .verMas{
+        cursor: pointer;
+    }
+    .tituloBusqueda{
+        font-family: $robotoFont;
+        color: $violeta;
+    }
+    .cardPadre{
+        display: flex;
+        justify-content:center;
+        flex-wrap: wrap;
+        .trendingGif{
+            width: 100%;
+            height: 100%;
+            max-height: 0px;
+            min-height: 150px;
+            object-fit: cover;
+            
+        }
+        .cardBusqueda{
+            margin:10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 40%;
+            height: auto;
+            position: relative;    
+            @media screen and (min-width:950px) {
+                width: 20%;
+                
+            }
+            &:hover *~ .overlay {
+                display: flex;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba($color: $violeta, $alpha: 0.8);
+                
+            }   
+        }           
+        .original{
+            padding: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .overlay{
+            display: none;
+            ul{
+                position: absolute;
+                top: 0;
+                right: 0;
+                li{
+                    margin: 5px;
+                }
+                list-style: none;
+                display: flex;
+                align-items:center;
+            }
+            
+            .userTitle{
+                position: absolute;
+                left: 5px;
+                text-align: left;
+                top: 60%;
+                p{
+                    color: white;
+                    font-family: $montserratFont;
+                    display: flex;
+                }
+            }
+        }
+    }
+    margin-top: 2em;
+    grid-row-start: 2;
+    text-align: center;
+    align-items: center;
+    
+    @media screen and (min-width:950px) {
+        margin-top: 5em;
+    }
+    h1{
+        color: $violeta;
+        font-family: $montserratFont;
+        padding-left: 3em;
+        padding-right: 3em;
+       .gifos{
+           color: $celeste;
+        } 
+        @media screen and (min-width:950px) {
+            margin-right: 20.5rem;
+            margin-left: 20.5rem;
+        }
+    }
+    form{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top:1rem;
+        @media screen and (min-width:950px) {
+            display: block;
+        }
+        .imgPrincipal{
+            width: 60%;
+            position: relative;
+            left: .9em;
+            top: .1em;
+            z-index: -1;
+            @media screen and (min-width:950px) {
+                width: 30%;
+                top:.3em;
+            }
+        }
+        
+        input{
+            border: 1px $violeta solid;
+            border-radius: 27px;
+            padding:1rem 4.5rem;
+            font-family: $robotoFont;
+            outline: 0px;
+            @media screen and (min-width:950px) {
+                display: flex;
+                justify-content: center; 
+                margin-left: auto;
+                margin-right: auto;   
+                padding-left: 5em;
+                padding-right: 10em;
+                                
+            }
+            @media screen and (min-width:1050px) {
+                display: flex;
+                justify-content: center; 
+                padding-left: 7em;
+                padding-right: 15em;               
+            }
+            @media screen and (min-width:1162px) {
+                display: flex;
+                padding-left: 7em;
+                padding-right: 25em;
+                
+            }
+        }
+        .ulBuscador{
+            display: block;
+            list-style: none;
+            text-align: left;
+            max-width: 60%;
+            .lisugerencia{
+                font-family: $robotoFont;
+                color:gray;
+                display: flex;
+                justify-content: left;
+                padding: 0.5em;
+                margin-left: auto;
+                margin-right: auto; 
+            }
+        }
+        .lupa{
+            position: relative;
+            width: 1.5em;
+            top:5em;
+            left: 0em;
+            z-index: 1;         
+            @media screen and (min-width:425px) {
+                top:5.5em;
+                left: -0.5em;
+            } 
+            @media screen and (min-width:950px) {
+                left: 0em;
+                top: 2.5em;
+            }
+            @media screen and (min-width:1050px) {
+                left: -1em;            
+            }
+        }
+    }
+    .tendenciasTitulo{
+        font-family: $montserratFont;
+        color: $violeta;
+        margin-top: 2em;
+        padding-right: 4em;
+        padding-left: 4em;
+        h2{
+            font-size:$sizeMain - 1.1 ;
+        }
+        .nuevoItemPadre{
+            .trendingText{
+                display: inline-block;
+                cursor: pointer;
+            }
+        }
+        p{
+            margin-top: .5em;
+            font-size:$sizeMain - 1.1 ;
+            
+        }
+    }
+        
+   
+    .inputConSugerenciasActivadas{
+        border-radius: 0px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border-bottom: 0;
+    }
+    
+    .sugerenciasActivas{
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        border: 1px $violeta solid;
+        border-bottom-left-radius:25px;
+        border-bottom-right-radius:25px;
+        border-top: 0;
+        padding-right: 5em;
+        padding-left: 2.5em;
+        width: 90%;
+        @media screen and (min-width:950px) {
+            width: 25%;
+            padding-left: 2.4em;
+            
+        }
+        @media screen and (min-width:1024px) {
+            width: 23%;
+            padding-left: 2.6em;
+                  
+        }
+        @media screen and (min-width:1100px) {
+            width: 30%;
+            padding-left: 2.6em;     
+        }
+        @media screen and (min-width:1440px) {
+            width: 32%;
+            padding-left: 2.7em;     
+        }
+        @media screen and (min-width:1540px) {
+            width: 30%;
+            padding-left: 2.6em;     
+        }
+        @media screen and (min-width:1740px) {
+            width: 26%;
+            padding-left: 2.7em;     
+        }
+    }
+            
+    
+    
+}
+
+#artTendencias{
+    margin-bottom: 2em;
+    color: $violeta;
+    text-align: center;
+    margin-top: 2em;
+    background-color: $crema;
+    height:auto;
+        div{
+            //subtitulos de gif tendencias
+            h2{
+                padding-top: 2em;
+                font-family: $montserratFont;
+                font-size: $sizeMain - .7;
+            }
+            div{
+                padding-top: 1em;
+            }
+            p{
+                font-family: $robotoFont;
+                color: $negro;
+                font-size: $sizeMain - 1.1;
+                padding-right: 2rem;
+                padding-left: 2rem;
+                @media screen and (min-width:950px) {
+                padding-left: 0;
+                padding-right: 0;   
+                display: inline-block;
+                }
+            }
+        }
+        .imgTendencias{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom:2em;
+            .trendingGif{
+                display: block;
+                width: 100%;
+                height: 100%;
+                max-height: 250px;
+                min-height: 250px;
+                object-fit: cover;
+                
+            }
+        }
+        .gifPadre{ 
+            max-width: 80%;
+            overflow: hidden;
+            .gifHijo{
+                padding: 0;
+                display: flex;
+                width: 2300%;
+                height: 250px;
+                align-items: center;
+                justify-content: center;
+                
+                &:first-child{
+                    margin-left: 15px;
+                }
+                @media screen and (min-width:796px) {
+                    width: 830%;
+                }
+            }
+            .card{
+                padding: 0;
+                width: 100%;
+                height: 250px;
+                margin-right: 15px;
+                position: relative; 
+                &:hover *~ .overlay {
+                    display: flex;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba($color: $violeta, $alpha: 0.8);
+                    
+                }      
+            }           
+            .original{
+                padding: 0;
+                width: 100%;
+            }
+            .overlay{
+                display: none;
+                ul{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    li{
+                        margin: 5px;
+                    }
+                    list-style: none;
+                    display: flex;
+                    align-items:center;
+                }
+                
+                .userTitle{
+                    position: absolute;
+                    left: 5px;
+                    text-align: left;
+                    top: 60%;
+                    p{
+                        color: white;
+                        font-family: $montserratFont;
+                        display: flex;
+                    }
+                }
+            }
+            
+        }
+        
+        .btnSliderL{
+            cursor: pointer;
+            display: none;
+            &:hover{
+                background-color: $violeta;
+                #a{
+                    fill: white;
+                    stroke: white;
+                }
+            }
+            @media screen and (min-width:792px) {
+                display: inline-block;
+            }
+        }
+        .btnSliderLNoct{
+            background-color: transparent;
+            display: none;
+            #a{
+                fill: white;
+                stroke: white;
+            }
+            path{
+                stroke: white;
+            }
+            &:hover{
+                background-color: white;
+                #a{
+                    fill: black;
+                    stroke: black;
+                }
+                path{
+                    stroke: white;
+                }
+            }        
+            @media screen and (min-width:792px) {
+                display: inline-block;   
+               }    
+        }
+        .btnSliderR{
+            cursor: pointer;
+            display: none;
+            margin-left: 10px;
+            &:hover{
+                background-color: $violeta;
+                #b{
+                    fill: white;
+                    stroke: white;
+                }
+            }
+            @media screen and (min-width:792px) {
+             display: inline-block;   
+            }
+        }
+        .btnSliderRNoct{
+            background-color: transparent;
+            display: none;
+            #b{
+                fill: white;
+                stroke: white;
+            }
+            path{
+                stroke: white;
+            }
+            &:hover{
+                background-color: white;
+                #b{
+                    fill: black;
+                    stroke: black;
+                }
+                path{
+                    stroke: white;
+                }
+            }         
+            @media screen and (min-width:792px) {
+                display: inline-block;   
+               }   
+        }
+        @media screen and (min-width:792px) {
+            justify-content: center;       
+        }
+    
+
+}   
+
+.gifCompleto{
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    display: flex;
+    flex-wrap:wrap ;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    .fff{
+        display: block;
+    }
+    .divPadre{
+        padding-top: 1em;
+        display: flex;
+        flex-wrap:wrap ;
+        justify-content: space-between;
+        width: 35em;
+        .divFavDow{
+            display: block;
+            padding-top: 1em;
+        }
+        .divTexto{
+            font-family: $robotoFont;
+            display: block; 
+            p{
+                padding-top: .5em;
+            }
+        }
+        
+    }
+    .cerrarGifMax{
+        cursor: pointer;
+        width: 20px;
+        position: absolute;
+        right: 16em;
+        top: 10em;
+    }
+    .gif{
+        width: 35em;
+        height: auto;
+        display: block;
+    }
+    
+}
+.noScroll{
+    overflow: hidden;
+}
+
+.lineaVioleta{
+    text-decoration: underline $violeta;
+}
