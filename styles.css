@@ -1021,6 +1021,42 @@ footer img {
   color: white;
 }
 
+.modoNocturnoBody .artCrearGifos .crearGifoPadre .crearGifo .camaraPadre {
+  border: 1px solid white;
+}
+
+.modoNocturnoBody .artCrearGifos .crearGifoPadre .crearGifo .camaraPadre h2 {
+  color: white;
+}
+
+.modoNocturnoBody .artCrearGifos .crearGifoPadre .crearGifo .pasoAPaso .repetirCap {
+  color: white;
+}
+
+.modoNocturnoBody .artCrearGifos .crearGifoPadre .crearGifo .pasoAPaso .paso {
+  border: 1px solid white;
+  color: white;
+}
+
+.modoNocturnoBody .artCrearGifos .crearGifoPadre .crearGifo .pasoAPaso .pasoActivo {
+  color: black;
+  background-color: white;
+}
+
+.modoNocturnoBody .artCrearGifos .linea {
+  background-color: white;
+}
+
+.modoNocturnoBody .boton .btnGrabar {
+  color: white;
+  border: 1px solid white;
+}
+
+.modoNocturnoBody .boton .btnGrabar:hover {
+  color: black;
+  background-color: white;
+}
+
 .modoNocturnoBody footer .lineaInf {
   background-color: black;
 }
@@ -1196,6 +1232,7 @@ footer img {
 }
 
 .artCrearGifos .crearGifoPadre .crearGifo .camaraPadre {
+  position: relative;
   width: 100%;
   height: 20em;
   display: -webkit-box;
@@ -1249,6 +1286,51 @@ footer img {
   z-index: 3000;
 }
 
+.artCrearGifos .crearGifoPadre .crearGifo .camaraPadre .cargaDeSubida {
+  padding-top: 0;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgba(87, 46, 229, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3001;
+}
+
+.artCrearGifos .crearGifoPadre .crearGifo .camaraPadre .cargaDeSubida .loader {
+  width: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+
+.artCrearGifos .crearGifoPadre .crearGifo .camaraPadre .cargaDeSubida .subiendoGifP {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  color: white;
+}
+
 .artCrearGifos .crearGifoPadre .crearGifo .pasoAPaso {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1260,6 +1342,23 @@ footer img {
       flex-wrap: wrap;
   margin-top: 3em;
   margin-bottom: 3em;
+}
+
+.artCrearGifos .crearGifoPadre .crearGifo .pasoAPaso .cronometroRepCap {
+  position: absolute;
+  top: 60%;
+  right: 30%;
+  font-family: "Roboto", sans-serif;
+}
+
+.artCrearGifos .crearGifoPadre .crearGifo .pasoAPaso .repetirCap {
+  cursor: pointer;
+  color: #572EE5;
+}
+
+.artCrearGifos .crearGifoPadre .crearGifo .pasoAPaso .repetirCap:hover {
+  -webkit-text-decoration: underline #50E3C2;
+          text-decoration: underline #50E3C2;
 }
 
 .artCrearGifos .crearGifoPadre .crearGifo .pasoAPaso .paso {
@@ -1320,6 +1419,11 @@ footer img {
   border: 1px solid #572EE5;
   border-radius: 50px;
   padding: 10px 30px;
+}
+
+.boton .btnGrabar:hover {
+  color: white;
+  background-color: #572EE5;
 }
 
 * {

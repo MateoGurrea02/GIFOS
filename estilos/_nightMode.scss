@@ -79,6 +79,44 @@
             }
         }
     }
+    .artCrearGifos{
+        .crearGifoPadre{
+            .crearGifo{
+                .camaraPadre{
+                    border:1px solid white;
+                    h2{
+                        color: white;
+                    }
+                }
+                .pasoAPaso{
+                    .repetirCap{
+                        color: white;
+                    }
+                    .paso{
+                        border: 1px solid white;
+                        color: white;
+                    }
+                    .pasoActivo{
+                        color: black;
+                        background-color: white;
+                    }
+                }
+            }
+        }
+        .linea{
+            background-color:white;
+        }
+    }
+    .boton{
+        .btnGrabar{
+            color: white;
+            border: 1px solid white; 
+            &:hover{
+                color: black;
+                background-color: white;
+            }
+        }
+    }
 
     footer{
         .lineaInf{

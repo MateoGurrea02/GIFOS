@@ -235,7 +235,6 @@ window.onload = function(){
         let newItem
         for(let i = 0;i < 5;i++){
             newItem = document.createElement('li')
-            // listaLiSugerencia.push(newItem)
             newItem.classList.add('lisugerencia')
             newItem.innerHTML = `<img src="./images/icon-search.svg"><p id"sugerencia${i}">${info.data[i].name}</p>`
             ulBuscador.appendChild(newItem)

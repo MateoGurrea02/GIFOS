@@ -15,6 +15,7 @@
             width: 45%;
             height: 100%;
             .camaraPadre{
+                position: relative;
                 width: 100%;
                 height: 20em;
                 display: flex;
@@ -51,6 +52,35 @@
                     height:300px;
                     z-index: 3000;
                 }
+                .cargaDeSubida{
+                    padding-top: 0;
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                    background-color: rgba($color: $violeta, $alpha: .5);
+                    width: 100%;
+                    height:100%;
+                    top: 0;
+                    left: 0;
+                    z-index: 3001;
+                    .loader{
+                        width: 5%;
+                        display: flex;
+                        flex: 1;
+                        margin-left:auto;
+                        margin-right:auto;
+                        margin-top:auto;
+                        margin-bottom: 10px;
+                    }
+                    .subiendoGifP{
+                        display: flex;
+                        flex: 1;
+                        margin-left:auto;
+                        margin-right:auto;
+                        margin-top:0;
+                        color: white;
+                    }
+                }
             }
             .pasoAPaso{
                 display: flex;
@@ -58,6 +88,20 @@
                 flex-wrap: wrap;
                 margin-top: 3em;
                 margin-bottom: 3em;
+                .cronometroRepCap{
+                    position: absolute;
+                    top: 60%;
+                    right: 30%;
+                    font-family: $robotoFont;
+
+                }
+                .repetirCap{
+                    cursor: pointer;
+                    color: $violeta;
+                    &:hover{
+                        text-decoration: underline $celeste;
+                    }
+                }
                 .paso{
                     font-family: $robotoFont;
                     text-align: center;
@@ -110,6 +154,10 @@
         border: 1px solid $violeta;
         border-radius: 50px;
         padding:10px 30px;
+        &:hover{
+            color: white;
+            background-color: $violeta;
+        }
 
     }
 }
