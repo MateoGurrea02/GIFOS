@@ -193,9 +193,10 @@ window.onload = function(){
                                 subiendoGifP.innerHTML = 'GIFO subido con éxito'
                                 let loader = document.getElementById('loader')
                                 loader.src ='./images/ok.svg'
+                                console.log(response)
                                 misGifosLista.push(response)
                                 console.log(misGifosLista)
-                                localStorage.setItem('miGifo', misGifosLista)
+                                localStorage.setItem('miGifo', JSON.stringify(misGifosLista))
                                 recorder.clearRecordedData()
                             })
                             

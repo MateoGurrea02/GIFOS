@@ -1,21 +1,105 @@
 window.onload = function(){
+    let artMisGifos = document.getElementById('artMisGifos')
+    let logo = document.getElementById('logo')
+    let modoNocturno = document.getElementById('modoNocturno')
+    let body = document.getElementById('body')
+    let crearGifo = document.getElementById('crearGifo')
+    let menu = document.getElementById('menu')
+    let hamburguesa = document.getElementById('iconoMenu')
+    let sliderR = document.getElementById('btnSliderR')
+    let sliderL = document.getElementById('btnSliderL')
+    let darkMode = false
+    let card
+    let gifHijo = document.getElementById('gifHijo')
+    let overlay 
+    let gifFavLista = []
+    let cardPadre
+
     function pagPrincipal(){
         logo.addEventListener('click', () =>{
             window.location.href = 'http://127.0.0.1:5500/index.html'
         })
-}
+    }
     
     function misGifos(){
         if((localStorage.getItem('miGifo') !== null ) && (JSON.parse(localStorage.getItem('miGifo') !== "[]"))){
             listaMisGif = (JSON.parse(localStorage.getItem('miGifo')))
-            renderMisGifos(listaMisGif)
+            for(let i = 0; i < listaMisGif.length;i++){
+                let id = listaMisGif[i].data.id
+                fetchMisGifos(id)
+            }
         }else{
             let misGifsSinResultado = document.createElement('div')
-            misGifsSinResultado.classList.add('favSinResultado')
-            misGifsSinResultado.innerHTML = '<img src="./images/icon-mis-gifos-sin-contenido.svg"><p class="pFavSinCont">"¡Anímate a crear tu primer GIFO!"</p>'
-            artMisGifos.appendChild(favSinResultado)
+            misGifsSinResultado.classList.add('misGifosSinResultado')
+            misGifsSinResultado.innerHTML = '<img src="./images/icon-mis-gifos-sin-contenido.svg"><p class="pMisGifosSinCont">"¡Anímate a crear tu primer GIFO!"</p>'
+            artMisGifos.appendChild(misGifsSinResultado)
         }
     }
+    async function fetchMisGifos(id){
+        let response = await fetch(`https://api.giphy.com/v1/gifs/${id}?api_key=bCngMprE1xNasA9iSMDnhK5O3T4GufEq`)
+        let infoMisGifos = await response.json()   
+        renderMisGifos(infoMisGifos)
+    }
+    function renderMisGifos(infoMisGifos){
+        let buttonTrash = []
+        cardPadre = document.createElement('div')
+        cardPadre.classList.add('cardPadre')
+        artMisGifos.appendChild(cardPadre)
+        for(let i = 0; i < 1;i++){
+            card = document.createElement('div')
+            card.classList.add('cardBusqueda')
+            card.innerHTML = `<div class="original"><img class="trendingGif" src='${infoMisGifos.data.images.original.url}'></img></div>`;
+            cardPadre.appendChild(card)
+            overlay = document.createElement('div')
+            overlay.classList.add('overlay')
+            overlay.innerHTML = `<ul>
+                                    <li><img class="fav" id="favoritos${i}" src="./images/icon-trash-normal.svg"></li>
+                                    <li><a id="downloadHrefFav${i}"><img class="download" id="downloadFav${i}" src="./images/icon-download.svg"></a></li>
+                                    <li><a href="#header"><img class="fullScreen" id="fullScreenFav${i}" src="./images/icon-max-normal.svg"></a></li>
+                                </ul>
+                                <div class="userTitle">
+                                    <p>${infoMisGifos.data.username}</p>
+                                    <p>${infoMisGifos.data.title}</p>
+                                </div`
+            card.appendChild(overlay)   
+            //boton de favoritos
+            buttonTrash[i] = document.getElementById(`favoritos${i}`)
+            buttonTrash[i].addEventListener('click', ()=>{                
+                if(gifFavLista.some((element)=> element.id === infoMisGifos.data.id)){
+                    let encontrarPosicion = gifFavLista.findIndex((element)=> element.id === infoMisGifos.data.id)                    
+                    gifFavLista.splice(encontrarPosicion,encontrarPosicion)
+                    localStorage.setItem('fav',JSON.stringify(gifFavLista))
+                }
+            })
+            //ver gif completo
+            let fullScreen = document.getElementById(`fullScreenFav${i}`)
+            let gif = infoMisGifos.data.images.original.url
+            let titulo = infoMisGifos.data.title
+            let user = infoMisGifos.data.username
+            let favId = `favoritos${i}`
+            gifTamañoOriginal(fullScreen, gif, titulo, user)
+
+            //descargar gif
+            let downloadHref = document.getElementById(`downloadHrefFav${i}`)
+            let urlGifs = infoMisGifos.data.images.original.url
+            downloadFile(i, infoMisGifos, downloadHref, urlGifs)
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     function nightMode (){
@@ -211,11 +295,11 @@ window.onload = function(){
         downloadHref.setAttribute('download', `${gifs[index]}.gif`)
     }
 
-
+    misGifos()
     pagPrincipal()
     nightMode ()
     scrollHeader()
     gifosTrending()
-
+    desplegarMenu ()
 
 }

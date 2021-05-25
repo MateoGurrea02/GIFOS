@@ -117,10 +117,21 @@
             }
         }
     }
+    .artMisGifos{
+        .misGifosSinResultado{
+            p{
+                color: white;
+            }
+        }
+        .tituloMisGifos{
+            color: white;
+        }
+    }
 
     footer{
         .lineaInf{
             background-color: black;
         }
     }
+
 }

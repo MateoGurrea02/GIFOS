@@ -1057,6 +1057,14 @@ footer img {
   background-color: white;
 }
 
+.modoNocturnoBody .artMisGifos .misGifosSinResultado p {
+  color: white;
+}
+
+.modoNocturnoBody .artMisGifos .tituloMisGifos {
+  color: white;
+}
+
 .modoNocturnoBody footer .lineaInf {
   background-color: black;
 }
@@ -1189,6 +1197,141 @@ footer img {
 }
 
 .artFavoritos .cardPadre .overlay .userTitle p {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.artMisGifos {
+  display: block;
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.artMisGifos .misGifosSinResultado {
+  text-align: center;
+  margin-top: 5em;
+}
+
+.artMisGifos .misGifosSinResultado p {
+  color: #50E3C2;
+  font-size: 1.7em;
+  font-family: "Roboto", sans-serif;
+  margin-top: 2em;
+}
+
+.artMisGifos .tituloMisGifos {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  color: #572EE5;
+  text-align: center;
+}
+
+.artMisGifos .tituloMisGifos .iconoMisGifos {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.artMisGifos .tituloMisGifos h2 {
+  display: block;
+}
+
+.artMisGifos .cardPadre {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.artMisGifos .cardPadre .trendingGif {
+  width: 100%;
+  height: 100%;
+  max-height: 0px;
+  min-height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.artMisGifos .cardPadre .cardBusqueda {
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 40%;
+  height: auto;
+  position: relative;
+}
+
+@media screen and (min-width: 950px) {
+  .artMisGifos .cardPadre .cardBusqueda {
+    width: 20%;
+  }
+}
+
+.artMisGifos .cardPadre .cardBusqueda:hover * ~ .overlay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(87, 46, 229, 0.8);
+}
+
+.artMisGifos .cardPadre .original {
+  padding: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.artMisGifos .cardPadre .overlay {
+  display: none;
+}
+
+.artMisGifos .cardPadre .overlay ul {
+  position: absolute;
+  top: 0;
+  right: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.artMisGifos .cardPadre .overlay ul li {
+  margin: 5px;
+}
+
+.artMisGifos .cardPadre .overlay .userTitle {
+  position: absolute;
+  left: 5px;
+  text-align: left;
+  top: 60%;
+}
+
+.artMisGifos .cardPadre .overlay .userTitle p {
   color: white;
   font-family: "Montserrat", sans-serif;
   display: -webkit-box;
