@@ -72,11 +72,6 @@ window.onload = function(){
         }
     
     }
-    function pagPrincipal(){
-            logo.addEventListener('click', () =>{
-                window.location.href = 'http://127.0.0.1:5500/index.html'
-            })
-    }
     //modo nocturno y diurno
     function nightMode (){
         modoNocturno.addEventListener('click', () =>{
@@ -303,7 +298,6 @@ window.onload = function(){
     
     nextAndBack()
     desplegarMenu ()
-    pagPrincipal()
     nightMode ()
     scrollHeader()
     gifosTrending()

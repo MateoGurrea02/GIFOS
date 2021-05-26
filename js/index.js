@@ -16,7 +16,6 @@ window.onload = function(){
     let input = document.getElementById('input')
     let gifFavLista = JSON.parse(localStorage.getItem('fav'))
     let ulBuscador = document.getElementById('ulBuscador')
-    let busq = document.getElementById('busq')
     let tituloPrinc = document.getElementById('tituloPrinc')
     let form = document.getElementById('form') 
     let artBusqueda = document.getElementById('artBusqueda') 
@@ -24,11 +23,6 @@ window.onload = function(){
     let btnVerMas
     let sugerenciaId
     
-    function pagPrincipal(){
-        logo.addEventListener('click', () =>{
-            window.location.href = 'http://127.0.0.1:5500/index.html'
-        })
-    }
 
     //modo nocturno y diurno
     function nightMode (){
@@ -507,10 +501,8 @@ window.onload = function(){
     }
 
     nextAndBack()
-
     lanzarBusqueda()
     inputListener()
-    pagPrincipal()
     textoTrending()
     gifosTrending()
     scrollHeader()

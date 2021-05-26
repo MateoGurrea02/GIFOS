@@ -27,7 +27,17 @@ header div {
   padding-top: 1em;
 }
 
-header div .logo {
+header div a {
+  margin-top: .5em;
+}
+
+@media screen and (min-width: 950px) {
+  header div a {
+    margin-top: 1.6em;
+  }
+}
+
+header div a .logo {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -38,7 +48,7 @@ header div .logo {
 }
 
 @media screen and (min-width: 950px) {
-  header div .logo {
+  header div a .logo {
     padding-left: 4em;
     position: relative;
     top: -1.5em;
