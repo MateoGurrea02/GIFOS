@@ -193,7 +193,16 @@ window.onload = function(){
                                 subiendoGifP.innerHTML = 'GIFO subido con éxito'
                                 let loader = document.getElementById('loader')
                                 loader.src ='./images/ok.svg'
-                                console.log(response)
+
+
+                                // let iconosDownVerOrg = document.createElement('div')
+                                // iconosDownVerOrg.classList.add('iconosDownVerOrg')
+                                // iconosDownVerOrg.innerHTML = ` <a id="download"><img src="./images/icon-download.svg"></a>
+                                //                                 <img src="">
+                                //                                 `
+                                // camaraPadre.appendChild(iconosDownVerOrg)
+
+
                                 misGifosLista.push(response)
                                 console.log(misGifosLista)
                                 localStorage.setItem('miGifo', JSON.stringify(misGifosLista))
@@ -300,7 +309,13 @@ window.onload = function(){
 
     camara.style.display='none';
     
-
+    async function downloadFile(index, gifs, downloadHref, url){
+        let response = await fetch(url)
+        let imageBlob = await response.blob()
+        let urlBlob = URL.createObjectURL(imageBlob)
+        downloadHref.href = urlBlob 
+        downloadHref.setAttribute('download', `${gifs[index]}.gif`)
+    }
     
     pagPrincipal()
     scrollHeader()
