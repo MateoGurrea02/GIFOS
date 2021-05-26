@@ -20,11 +20,6 @@ window.onload = function(){
     let gifMisGifosLista = JSON.parse(localStorage.getItem('miGifo'))
     let contenedorPrincipal = document.getElementById('contenedorPrincipal')
 
-    function pagPrincipal(){
-        logo.addEventListener('click', () =>{
-            window.location.href = 'http://127.0.0.1:5500/index.html'
-        })
-    }
     
     function misGifos(){
         if((localStorage.getItem('miGifo') !== null ) && (JSON.parse(localStorage.getItem('miGifo') !== "[]"))){

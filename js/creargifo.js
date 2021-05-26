@@ -22,11 +22,6 @@ window.onload = function(){
     let camaraPelicula = document.getElementById('camaraPelicula')
     
     
-    function pagPrincipal(){
-        logo.addEventListener('click', () =>{
-            window.location.href = 'http://127.0.0.1:5500/index.html'
-        })
-    }
 
     function nightMode (){
         modoNocturno.addEventListener('click', () =>{
@@ -310,7 +305,6 @@ window.onload = function(){
         downloadHref.setAttribute('download', `${gifs[index]}.gif`)
     }
     
-    pagPrincipal()
     scrollHeader()
     desplegarMenu()
     nightMode()
