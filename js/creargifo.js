@@ -13,7 +13,11 @@ window.onload = function(){
     let paso3 = document.getElementById('paso3')
     let camaraImg = document.getElementById('camaraImg')
     let form = new FormData();
-    let misGifosLista = []
+    let misGifosLista = JSON.parse(localStorage.getItem('miGifo'))
+    if(misGifosLista == null){
+        misGifosLista = []
+    }
+    
     let pelicula = document.getElementById('pelicula') 
     let camaraPelicula = document.getElementById('camaraPelicula')
     
@@ -193,18 +197,7 @@ window.onload = function(){
                                 subiendoGifP.innerHTML = 'GIFO subido con éxito'
                                 let loader = document.getElementById('loader')
                                 loader.src ='./images/ok.svg'
-
-
-                                // let iconosDownVerOrg = document.createElement('div')
-                                // iconosDownVerOrg.classList.add('iconosDownVerOrg')
-                                // iconosDownVerOrg.innerHTML = ` <a id="download"><img src="./images/icon-download.svg"></a>
-                                //                                 <img src="">
-                                //                                 `
-                                // camaraPadre.appendChild(iconosDownVerOrg)
-
-
                                 misGifosLista.push(response)
-                                console.log(misGifosLista)
                                 localStorage.setItem('miGifo', JSON.stringify(misGifosLista))
                                 recorder.clearRecordedData()
                             })

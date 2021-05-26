@@ -271,7 +271,37 @@ window.onload = function(){
         downloadHref.href = urlBlob 
         downloadHref.setAttribute('download', `${gifs[index]}.gif`)
     }
+    function nextAndBack(){
+        let margin = 15
+        sliderR.addEventListener('click',()=>{
+            if(margin < -6495){
+                margin = 15
+                gifHijo.style.marginLeft = `${margin}px`
+                gifHijo.style.transition = 'ease .5s'
+            }else{
+                margin = margin - 930
+                gifHijo.style.marginLeft = `${margin}px`
+                gifHijo.style.transition = 'ease .5s'
+            }
+           
+        })
+        sliderL.addEventListener('click',()=>{
+            if(margin > 14){
+                margin = -7425
+                gifHijo.style.marginLeft = `${margin}px`
+                gifHijo.style.transition = 'ease .5s'
+            }else{
+                margin = margin + 930
+                gifHijo.style.marginLeft = `${margin}px`
+            }
+            
+        })
 
+
+    }
+
+    
+    nextAndBack()
     desplegarMenu ()
     pagPrincipal()
     nightMode ()

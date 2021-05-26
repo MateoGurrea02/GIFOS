@@ -424,8 +424,6 @@ window.onload = function(){
             let gif = info.data[i].images.original.url
             let titulo = info.data[i].title
             let user = info.data[i].username
-            let informacion = info
-            let favId = `fav${i}`
             gifTamañoOriginal(fullScreen, gif, titulo, user)   
             }
             verMas.innerHTML=''
@@ -479,12 +477,36 @@ window.onload = function(){
         downloadHref.setAttribute('download', `${gifs[index]}.gif`)
     }
     
-    function Next(){
-        let sliderCardFirst = document.querySelectorAll('.card')
+    function nextAndBack(){
+        let margin = 15
+        sliderR.addEventListener('click',()=>{
+            if(margin < -6495){
+                margin = 15
+                gifHijo.style.marginLeft = `${margin}px`
+                gifHijo.style.transition = 'ease .5s'
+            }else{
+                margin = margin - 930
+                gifHijo.style.marginLeft = `${margin}px`
+                gifHijo.style.transition = 'ease .5s'
+            }
+           
+        })
+        sliderL.addEventListener('click',()=>{
+            if(margin > 14){
+                margin = -7425
+                gifHijo.style.marginLeft = `${margin}px`
+                gifHijo.style.transition = 'ease .5s'
+            }else{
+                margin = margin + 930
+                gifHijo.style.marginLeft = `${margin}px`
+            }
+            
+        })
+
 
     }
 
-
+    nextAndBack()
 
     lanzarBusqueda()
     inputListener()
