@@ -12,8 +12,9 @@ window.onload = function(){
     let card
     let gifHijo = document.getElementById('gifHijo')
     let overlay 
-    let gifFavLista = []
+    let gifFavLista = JSON.parse(localStorage.getItem('fav'))
     let cardPadre
+    let gifMisGifosLista = JSON.parse(localStorage.getItem('miGifo'))
 
     function pagPrincipal(){
         logo.addEventListener('click', () =>{
@@ -41,7 +42,6 @@ window.onload = function(){
         renderMisGifos(infoMisGifos)
     }
     function renderMisGifos(infoMisGifos){
-        let buttonTrash = []
         cardPadre = document.createElement('div')
         cardPadre.classList.add('cardPadre')
         artMisGifos.appendChild(cardPadre)
@@ -53,7 +53,7 @@ window.onload = function(){
             overlay = document.createElement('div')
             overlay.classList.add('overlay')
             overlay.innerHTML = `<ul>
-                                    <li><img class="fav" id="favoritos${i}" src="./images/icon-trash-normal.svg"></li>
+                                    <li><img class="fav" id="trash${i}" src="./images/icon-trash-normal.svg"></li>
                                     <li><a id="downloadHrefFav${i}"><img class="download" id="downloadFav${i}" src="./images/icon-download.svg"></a></li>
                                     <li><a href="#header"><img class="fullScreen" id="fullScreenFav${i}" src="./images/icon-max-normal.svg"></a></li>
                                 </ul>
@@ -63,12 +63,13 @@ window.onload = function(){
                                 </div`
             card.appendChild(overlay)   
             //boton de favoritos
-            buttonTrash[i] = document.getElementById(`favoritos${i}`)
-            buttonTrash[i].addEventListener('click', ()=>{                
-                if(gifFavLista.some((element)=> element.id === infoMisGifos.data.id)){
-                    let encontrarPosicion = gifFavLista.findIndex((element)=> element.id === infoMisGifos.data.id)                    
-                    gifFavLista.splice(encontrarPosicion,encontrarPosicion)
-                    localStorage.setItem('fav',JSON.stringify(gifFavLista))
+            trash = document.getElementById(`trash${i}`)
+            trash.addEventListener('click', ()=>{                
+                if(gifMisGifosLista.some((element)=> element.id === infoMisGifos.data.id)){
+                    let encontrarPosicion = gifMisGifosLista.findIndex((element)=> element.id === infoMisGifos.data.id)                    
+                    gifMisGifosLista.splice(encontrarPosicion,encontrarPosicion)
+                    let gifMisGifosListaJson = JSON.stringify(gifMisGifosLista)
+                    localStorage.setItem('fav',gifMisGifosListaJson)
                 }
             })
             //ver gif completo
@@ -76,7 +77,6 @@ window.onload = function(){
             let gif = infoMisGifos.data.images.original.url
             let titulo = infoMisGifos.data.title
             let user = infoMisGifos.data.username
-            let favId = `favoritos${i}`
             gifTamañoOriginal(fullScreen, gif, titulo, user)
 
             //descargar gif

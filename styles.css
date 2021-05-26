@@ -390,6 +390,7 @@ header div .noActivo {
 }
 
 #artBusqueda form .ulBuscador .lisugerencia {
+  cursor: pointer;
   font-family: "Roboto", sans-serif;
   color: gray;
   display: -webkit-box;

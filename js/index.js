@@ -14,7 +14,7 @@ window.onload = function(){
     let gifHijo = document.getElementById('gifHijo')
     let overlay
     let input = document.getElementById('input')
-    let gifFavLista = []
+    let gifFavLista = JSON.parse(localStorage.getItem('fav'))
     let ulBuscador = document.getElementById('ulBuscador')
     let busq = document.getElementById('busq')
     let tituloPrinc = document.getElementById('tituloPrinc')
@@ -167,11 +167,13 @@ window.onload = function(){
                 if(gifFavLista.some((element)=> element.id === info.data[i].id)){
                     let encontrarPosicion = gifFavLista.findIndex((element)=> element.id === info.data[i].id)                    
                     gifFavLista.splice(encontrarPosicion, 1)
-                    localStorage.setItem('fav',JSON.stringify(gifFavLista))
+                    let gifFavListaJson = JSON.stringify(gifFavLista)
+                    localStorage.setItem('fav',gifFavListaJson)
                     favActive = buttonFav[i].setAttribute('src', "../images/icon-fav.svg")
                 }else{
                     gifFavLista.push(info.data[i])
-                    localStorage.setItem('fav', JSON.stringify(gifFavLista))
+                    let gifFavListaJson = JSON.stringify(gifFavLista)
+                    localStorage.setItem('fav',gifFavListaJson)
                     favActive = buttonFav[i].setAttribute('src', "../images/icon-fav-active.svg")
                 }
             })
@@ -224,22 +226,31 @@ window.onload = function(){
 
 
     async function infoSugerencias(busqueda){
-        let response = await fetch(`https://api.giphy.com/v1/tags/related/{${busqueda}}?api_key=bCngMprE1xNasA9iSMDnhK5O3T4GufEq`)
-        let info = await response.json()
-
-        renderSugBuscador(info)
-        console.log(info)
+        try{
+            let response = await fetch(`https://api.giphy.com/v1/tags/related/{${busqueda}}?api_key=bCngMprE1xNasA9iSMDnhK5O3T4GufEq`)
+            let info = await response.json()
+            renderSugBuscador(info)
+        }
+        catch{
+            console.warn('Esa busqueda no tiene resultado')
+        }
     }
+    let sugerencia=[]
     function renderSugBuscador(info){
         ulBuscador.innerHTML = ''
         let newItem
         for(let i = 0;i < 5;i++){
             newItem = document.createElement('li')
             newItem.classList.add('lisugerencia')
-            newItem.innerHTML = `<img src="./images/icon-search.svg"><p id"sugerencia${i}">${info.data[i].name}</p>`
+            newItem.innerHTML = `<img src="./images/icon-search.svg"><p id="sugerencia${i}">${info.data[i].name}</p>`
             ulBuscador.appendChild(newItem)
-            
+            sugerencia[i] = document.getElementById(`sugerencia${i}`)
+            sugerencia[i].addEventListener('click',()=>{
+                infoBusqueda(info.data[i].name)
+            })
         }
+        
+        
     }
 
 
@@ -283,9 +294,14 @@ window.onload = function(){
         })
     }
     async function infoBusqueda(valueInput){
-        let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=bCngMprE1xNasA9iSMDnhK5O3T4GufEq&q=${valueInput}}`)
-        let info = await response.json()
-        renderBusqueda(info,valueInput)
+        try {
+            let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=bCngMprE1xNasA9iSMDnhK5O3T4GufEq&q=${valueInput}}`)
+            let info = await response.json()
+            renderBusqueda(info,valueInput)
+        }
+        catch{
+            console.warn('No hay un resultado para tu busqueda')
+        }
     }
   
     function lanzarBusqueda(){
@@ -336,11 +352,13 @@ window.onload = function(){
                 if(gifFavLista.some((element)=> element.id === info.data[i].id)){
                     let encontrarPosicion = gifFavLista.findIndex((element)=> element.id === info.data[i].id)                    
                     gifFavLista.splice(encontrarPosicion, 1)
-                    localStorage.setItem('fav',JSON.stringify(gifFavLista))
+                    let gifFavListaJson = JSON.stringify(gifFavLista)
+                    localStorage.setItem('fav',gifFavListaJson)
                     favActive = buttonFav[i].setAttribute('src', "../images/icon-fav.svg")
                 }else{
                     gifFavLista.push(info.data[i])
-                    localStorage.setItem('fav', JSON.stringify(gifFavLista))
+                    let gifFavListaJson = JSON.stringify(gifFavLista)
+                    localStorage.setItem('fav',gifFavListaJson)
                     favActive = buttonFav[i].setAttribute('src', "../images/icon-fav-active.svg")
                 }
             })
@@ -355,8 +373,6 @@ window.onload = function(){
         let gif = info.data[i].images.original.url
         let titulo = info.data[i].title
         let user = info.data[i].username
-        let informacion = info
-        let favId = `fav${i}`
         gifTamañoOriginal(fullScreen, gif, titulo, user)         
         }
         tituloPrinc.style.display ='none'
@@ -388,11 +404,13 @@ window.onload = function(){
                 if(gifFavLista.some((element)=> element.id === info.data[i].id)){
                     let encontrarPosicion = gifFavLista.findIndex((element)=> element.id === info.data[i].id)                    
                     gifFavLista.splice(encontrarPosicion, 1)
-                    localStorage.setItem('fav',JSON.stringify(gifFavLista))
+                    let gifFavListaJson = JSON.stringify(gifFavLista)
+                    localStorage.setItem('fav',gifFavListaJson)
                     favActive = buttonFav[i].setAttribute('src', "../images/icon-fav.svg")
                 }else{
                     gifFavLista.push(info.data[i])
-                    localStorage.setItem('fav', JSON.stringify(gifFavLista))
+                    let gifFavListaJson = JSON.stringify(gifFavLista)
+                    localStorage.setItem('fav',gifFavListaJson)
                     favActive = buttonFav[i].setAttribute('src', "../images/icon-fav-active.svg")
                 }
             })

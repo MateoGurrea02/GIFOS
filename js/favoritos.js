@@ -11,7 +11,7 @@ window.onload = function(){
     let card
     let gifHijo = document.getElementById('gifHijo')
     let overlay 
-    let gifFavLista = []
+    let gifFavLista = JSON.parse(localStorage.getItem('fav'))
     let infoGifosFav = []
     let artFavoritos = document.getElementById('artFavoritos')
     function gifosFav(){
@@ -207,11 +207,13 @@ window.onload = function(){
                 if(gifFavLista.some((element)=> element.id === info.data[i].id)){
                     let encontrarPosicion = gifFavLista.findIndex((element)=> element.id === info.data[i].id)                    
                     gifFavLista.splice(encontrarPosicion, 1)
-                    localStorage.setItem('fav',JSON.stringify(gifFavLista))
+                    let gifFavListaJson = JSON.stringify(gifFavLista)
+                    localStorage.setItem('fav',gifFavListaJson)
                     favActive = buttonFav[i].setAttribute('src', "../images/icon-fav.svg")
                 }else{
                     gifFavLista.push(info.data[i])
-                    localStorage.setItem('fav', JSON.stringify(gifFavLista))
+                    let gifFavListaJson = JSON.stringify(gifFavLista)
+                    localStorage.setItem('fav',gifFavListaJson)
                     favActive = buttonFav[i].setAttribute('src', "../images/icon-fav-active.svg")
                 }
             })
