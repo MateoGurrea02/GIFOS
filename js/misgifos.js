@@ -13,8 +13,12 @@ window.onload = function(){
     let gifHijo = document.getElementById('gifHijo')
     let overlay 
     let gifFavLista = JSON.parse(localStorage.getItem('fav'))
+    if(gifFavLista == null){
+        gifFavLista = []
+    }
     let cardPadre
     let gifMisGifosLista = JSON.parse(localStorage.getItem('miGifo'))
+    let contenedorPrincipal = document.getElementById('contenedorPrincipal')
 
     function pagPrincipal(){
         logo.addEventListener('click', () =>{
@@ -44,7 +48,7 @@ window.onload = function(){
     function renderMisGifos(infoMisGifos){
         cardPadre = document.createElement('div')
         cardPadre.classList.add('cardPadre')
-        artMisGifos.appendChild(cardPadre)
+        contenedorPrincipal.appendChild(cardPadre)
         for(let i = 0; i < 1;i++){
             card = document.createElement('div')
             card.classList.add('cardBusqueda')
@@ -232,7 +236,8 @@ window.onload = function(){
                 if(gifFavLista.some((element)=> element.id === info.data[i].id)){
                     let encontrarPosicion = gifFavLista.findIndex((element)=> element.id === info.data[i].id)                    
                     gifFavLista.splice(encontrarPosicion, 1)
-                    localStorage.setItem('fav',JSON.stringify(gifFavLista))
+                    let gifFavListaJson = JSON.stringify(gifFavLista)
+                    localStorage.setItem('fav',gifFavListaJson)
                     favActive = buttonFav[i].setAttribute('src', "../images/icon-fav.svg")
                 }else{
                     gifFavLista.push(info.data[i])
@@ -280,10 +285,10 @@ window.onload = function(){
             body.classList.add('noScroll')
             let cerrarGifMax = document.getElementById('cerrarGifMax')
             cerrarGifMax.addEventListener('click', ()=>{
-            card.innerHTML = ''
-            card.classList.remove('gifCompleto')
-            body.classList.remove('noScroll')          
-        })
+                card.innerHTML = ''
+                card.classList.remove('gifCompleto')
+                body.classList.remove('noScroll')          
+            })
         })
         
     }
@@ -294,7 +299,35 @@ window.onload = function(){
         downloadHref.href = urlBlob 
         downloadHref.setAttribute('download', `${gifs[index]}.gif`)
     }
+    function nextAndBack(){
+        let margin = 15
+        sliderR.addEventListener('click',()=>{
+            if(margin < -6495){
+                margin = 15
+                gifHijo.style.marginLeft = `${margin}px`
+                gifHijo.style.transition = 'ease .5s'
+            }else{
+                margin = margin - 930
+                gifHijo.style.marginLeft = `${margin}px`
+                gifHijo.style.transition = 'ease .5s'
+            }
+           
+        })
+        sliderL.addEventListener('click',()=>{
+            if(margin > 14){
+                margin = -7425
+                gifHijo.style.marginLeft = `${margin}px`
+                gifHijo.style.transition = 'ease .5s'
+            }else{
+                margin = margin + 930
+                gifHijo.style.marginLeft = `${margin}px`
+            }
+            
+        })
+    }
 
+
+    nextAndBack()
     misGifos()
     pagPrincipal()
     nightMode ()
