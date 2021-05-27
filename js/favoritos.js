@@ -12,6 +12,9 @@ window.onload = function(){
     let gifHijo = document.getElementById('gifHijo')
     let overlay 
     let gifFavLista = JSON.parse(localStorage.getItem('fav'))
+    if(gifFavLista == null){
+        gifFavLista = []
+    }
     let infoGifosFav = []
     let artFavoritos = document.getElementById('artFavoritos')
     function gifosFav(){

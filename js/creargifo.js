@@ -188,6 +188,18 @@ window.onload = function(){
                             .then(response =>{
                                 return response.json()
                             }).then(response =>{
+                                let divDownloadLink = document.createElement('div')
+                                divDownloadLink.classList.add('divDownloadLink')
+                                divDownloadLink.innerHTML = `<img id="downloadMiGif" src="./images/icon-download.svg">
+                                                            <img id="linkMiGif" src="./images/icon-link-normal.svg">`
+                                cargaDeSubida.appendChild(divDownloadLink)
+                                let myGifoId = response.data.id;
+                                linkMiGif.addEventListener("click",()=>{
+                                    window.open(`https://media.giphy.com/media/${myGifoId}/giphy.gif`, "_blank");
+                                })
+                                downloadMiGif.addEventListener("click",()=>{
+                                    downloadGif(myGifoId);
+                                  });
                                 let subiendoGifP = document.getElementById('subiendoGifP')
                                 subiendoGifP.innerHTML = 'GIFO subido con éxito'
                                 let loader = document.getElementById('loader')
@@ -232,7 +244,6 @@ window.onload = function(){
                                     camaraImg.style.display='block'
                                     form.append('file', blob, 'myGif.gif');
                                     
-                                    
                                     //subir mi gifo
                                     let btnSubirGifo = document.getElementById('btnSubirGifo')
                                     btnSubirGifo.addEventListener('click',()=>{
@@ -245,16 +256,27 @@ window.onload = function(){
                                         fetch(`http://upload.giphy.com/v1/gifs?api_key=bCngMprE1xNasA9iSMDnhK5O3T4GufEq&file=${form}`,{method:'POST', body:form})
                                         .then(response =>{
                                             return response.json()
-                                        }).then(response =>{let subiendoGifP = document.getElementById('subiendoGifP')
-                                        subiendoGifP.innerHTML = 'GIFO subido con éxito'
+                                        }).then(response =>{
+                                            let divDownloadLink = document.createElement('div')
+                                            divDownloadLink.classList.add('divDownloadLink')
+                                            divDownloadLink.innerHTML = `<img id="downloadMiGif" src="./images/icon-download.svg">
+                                                                        <img id="linkMiGif" src="./images/icon-link-normal.svg">`
+                                            cargaDeSubida.appendChild(divDownloadLink)
+                                            let myGifoId = response.data.id;
+                                            linkMiGif.addEventListener("click",()=>{
+                                                window.open(`https://media.giphy.com/media/${myGifoId}/giphy.gif`, "_blank");
+                                            })
+                                            downloadMiGif.addEventListener("click",()=>{
+                                                downloadGif(myGifoId);
+                                            });
+                                            let subiendoGifP = document.getElementById('subiendoGifP')
+                                            subiendoGifP.innerHTML = 'GIFO subido con éxito'
                                             let loader = document.getElementById('loader')
                                             loader.src ='./images/ok.svg'
                                             misGifosLista.push(response)
-                                            console.log(misGifosLista)
-                                            localStorage.setItem('miGifo', misGifosLista)
+                                            localStorage.setItem('miGifo', JSON.stringify(misGifosLista))
                                             recorder.clearRecordedData()
                                         })
-                                        
                                     })
                                 });
                             })
@@ -297,13 +319,19 @@ window.onload = function(){
 
     camara.style.display='none';
     
-    async function downloadFile(index, gifs, downloadHref, url){
+    async function downloadFile(gifs, downloadHref, url){
         let response = await fetch(url)
         let imageBlob = await response.blob()
         let urlBlob = URL.createObjectURL(imageBlob)
         downloadHref.href = urlBlob 
-        downloadHref.setAttribute('download', `${gifs[index]}.gif`)
+        downloadHref.setAttribute('download', `${gifs}.gif`)
     }
+    async function downloadGif(gifoImg) {
+        let blob = await fetch(
+         `https://media.giphy.com/media/${gifoImg}/giphy.gif`
+       ).then((img) => img.blob());
+        invokeSaveAsDialog(blob, "gif.gif");
+      }
     
     scrollHeader()
     desplegarMenu()

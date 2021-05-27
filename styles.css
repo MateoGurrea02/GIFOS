@@ -1444,6 +1444,18 @@ footer img {
   z-index: 3000;
 }
 
+.artCrearGifos .crearGifoPadre .crearGifo .camaraPadre .divDownloadLink {
+  position: absolute;
+  z-index: 3001;
+  top: 10px;
+  right: 10px;
+}
+
+.artCrearGifos .crearGifoPadre .crearGifo .camaraPadre .divDownloadLink img {
+  cursor: pointer;
+  margin: 1px;
+}
+
 .artCrearGifos .crearGifoPadre .crearGifo .camaraPadre .cargaDeSubida {
   padding-top: 0;
   position: absolute;

@@ -85,22 +85,6 @@ window.onload = function(){
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     function nightMode (){
         modoNocturno.addEventListener('click', () =>{
             body.classList.toggle('modoNocturnoBody')
@@ -324,7 +308,6 @@ window.onload = function(){
 
     nextAndBack()
     misGifos()
-    pagPrincipal()
     nightMode ()
     scrollHeader()
     gifosTrending()

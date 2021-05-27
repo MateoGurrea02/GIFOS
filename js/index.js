@@ -15,6 +15,9 @@ window.onload = function(){
     let overlay
     let input = document.getElementById('input')
     let gifFavLista = JSON.parse(localStorage.getItem('fav'))
+    if(gifFavLista == null){
+        gifFavLista = []
+    }
     let ulBuscador = document.getElementById('ulBuscador')
     let tituloPrinc = document.getElementById('tituloPrinc')
     let form = document.getElementById('form') 
